@@ -1,0 +1,22 @@
+{
+  "name": "jquery-typing",
+  "version": "0.1.1",
+  "homepage": "https://github.com/vwochnik/jquery-typing",
+  "authors": [
+    "Vincent Wochnik <v.wochnik@gmail.com>"
+  ],
+  "description": "A jQuery plugin that can typewrite HTML.",
+  "main": ["dist/jquery.typing.min.js", "dist/jquery.typing.min.css"],
+  "keywords": [
+    "jquery",
+    "typing",
+    "typewrite",
+    "animation"
+  ],
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-clean-css": "^2.0.7"
+  }
+}

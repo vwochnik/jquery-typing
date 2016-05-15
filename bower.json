@@ -1,0 +1,18 @@
+{
+  "name": "jquery-typing",
+  "version": "0.1.1",
+  "homepage": "https://github.com/vwochnik/jquery-typing",
+  "authors": [
+    "Vincent Wochnik <v.wochnik@gmail.com>"
+  ],
+  "description": "A jQuery plugin that can typewrite HTML.",
+  "main": ["src/jquery.typing.js", "src/jquery.typing.css"],
+  "keywords": [
+    "jquery",
+    "typing",
+    "typewrite",
+    "animation"
+  ],
+  "ignore": [],
+  "license": "MIT"
+}

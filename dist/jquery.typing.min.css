@@ -1,0 +1,5 @@
+/*!
+ * jQuery Typing
+ * A jQuery plugin that can typewrite HTML.
+ * Copyright (c) 2016 Vincent Wochnik.
+ */.blinking-cursor{opacity:1;-webkit-animation:blinking-cursor .7s infinite;-moz-animation:blinking-cursor .7s infinite;animation:blinking-cursor .7s infinite}@keyframes blinking-cursor{0%,100%{opacity:1}50%{opacity:0}}@-webkit-keyframes blinking-cursor{0%,100%{opacity:1}50%{opacity:0}}@-moz-keyframes blinking-cursor{0%,100%{opacity:1}50%{opacity:0}}
