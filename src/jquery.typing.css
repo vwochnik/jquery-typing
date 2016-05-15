@@ -4,6 +4,8 @@
  * Copyright (c) 2016 Vincent Wochnik.
  */
 .blinking-cursor {
+    display: inline-block;
+    width: 0;
     opacity: 1;
     -webkit-animation: blinking-cursor 0.7s infinite;
     -moz-animation: blinking-cursor 0.7s infinite;
