@@ -10,9 +10,13 @@
                               window.setTimeout;
 
   function timeout(fn, msec) {
-    requestAnimationFrame(function() {
-      setTimeout(fn, msec);
-    });
+    if (msec > 0) {
+      requestAnimationFrame(function() {
+        setTimeout(fn, msec);
+      });
+    } else {
+      requestAnimationFrame(fn);
+    }
   }
 
   function typewrite($dst, $src, options) {
@@ -34,10 +38,11 @@
           delayedType();
         } else {
           clearInterval(intval);
-          timeout(function() {
+
+          if (options.detachCursor) {
             options.cursorElement.detach();
-            options.cb();
-          }, options.break);
+          }
+          timeout(options.cb(), options.break);
         }
       }, options.speed);
     };
@@ -48,15 +53,15 @@
   function elementOptions($elem) {
     var options = {}, val;
 
-    if (val = $elem.data("speed")) {
+    if ((val = $elem.data("speed")) !== undefined) {
       options.speed = val;
     }
 
-    if (val = $elem.data("delay")) {
+    if ((val = $elem.data("delay")) !== undefined) {
       options.delay = val;
     }
 
-    if (val = $elem.data("break")) {
+    if ((val = $elem.data("break")) !== undefined) {
       options.break = val;
     }
 
@@ -115,6 +120,7 @@
 
   $.fn.typing.defaults = {
     cursorElement: $("<span/>").addClass("blinking-cursor").text("|"),
+    detachCursor: true,
     delay: 0,
     speed: 50,
     break: 120,

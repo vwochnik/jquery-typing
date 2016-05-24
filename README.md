@@ -6,6 +6,12 @@ Typing is a jQuery plugin that can write whole parts of the DOM. It's really
 easy to use and has a set of options that allows neat typing animations to be
 built.
 
+## Demo
+
+Check out [this fiddle](https://jsfiddle.net/vwochnik/qh66c12y/1/) for a generic
+demo and [this one](https://jsfiddle.net/vwochnik/7k9cj0qg/4/) for a terminal
+animation.
+
 ## Installation
 
 You can install the plugin using bower:
@@ -30,10 +36,10 @@ need a container element into which the plugin typewrites.
 ```
 <div id="typing"></div>
 <div id="content" style="display:none">
-  <h1 data-speed="120">Hi! <small data-speed="80" data-delay="1000">This is typewrite!</small></h1>
+  <h1 data-speed="120">Hi! <small data-speed="80" data-delay="1000">This is jQuery Typing!</small></h1>
   <p><strong>A jQuery plugin that can typewrite HTML.</strong></p>
-  <p>Typewrite is a jQuery plugin that can write whole parts of the DOM.
-  <br>It's really easy to use and has a set of options that allows neat typing animations to be built.</p>
+  <p>Typing is a jQuery plugin that can write whole parts of the DOM.
+  <br>It's really easy to use and has a set of options that allows neat typing animations to be built with varying speed and delays.</p>
 </div>
 ```
 
