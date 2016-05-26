@@ -10,13 +10,14 @@
                               window.setTimeout;
 
   function timeout(fn, msec) {
-    if (msec > 0) {
-      requestAnimationFrame(function() {
-        setTimeout(fn, msec);
-      });
-    } else {
-      requestAnimationFrame(fn);
-    }
+    if (msec < 0) { return fn(); }
+
+    var now = Date.now(), diff;
+    requestAnimationFrame(function() {
+      diff = Date.now() - now;
+      if (msec <= diff) { return fn(); }
+      setTimeout(fn, msec - diff);
+    });
   }
 
   function typewrite($dst, $src, options) {
@@ -121,9 +122,9 @@
   $.fn.typing.defaults = {
     cursorElement: $("<span/>").addClass("blinking-cursor").text("|"),
     detachCursor: true,
-    delay: 0,
+    delay: -1,
     speed: 50,
-    break: 120,
+    break: -1,
     cb: function() {}
   };
 })(window, jQuery);

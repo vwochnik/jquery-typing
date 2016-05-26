@@ -8,8 +8,8 @@ built.
 
 ## Demo
 
-Check out [this fiddle](https://jsfiddle.net/vwochnik/qh66c12y/1/) for a generic
-demo and [this one](https://jsfiddle.net/vwochnik/7k9cj0qg/4/) for a terminal
+Check out [this fiddle](https://jsfiddle.net/vwochnik/qh66c12y/2/) for a generic
+demo and [this one](https://jsfiddle.net/vwochnik/7k9cj0qg/6/) for a terminal
 animation.
 
 ## Installation
@@ -71,6 +71,13 @@ DOM. This can be a jQuery selection or a native DOM element.
 If you want to disable the cursor, use an empty jQuery selection as its
 value: `$([])`.
 
+### detachCursor
+
+This option determines whether the cursor element should be detached from the
+DOM after the typewriting for a certain element has completed. Note that a DOM
+element can not be attached twice so naturally, the cursor element is being
+detached before it is reattached for each successive typing animation.
+
 ### cb
 
 This is a callback function that is called after the animation has been
@@ -79,6 +86,8 @@ completed.
 ### speed
 
 This is the time in milliseconds between each stroke.
+`0` does not cause any time delay but is still using `requestAnimationFrame`,
+`-1` is not.
 
 This option can be customized for each element by setting the `data-speed`
 attribute to the desired value.
@@ -86,6 +95,8 @@ attribute to the desired value.
 ### delay
 
 This is the delay in milliseconds before an element is being typed.
+`0` does not cause any time delay but is still using `requestAnimationFrame`,
+`-1` is not.
 
 This option can be customized for each element by setting the `data-delay`
 attribute to the desired value.
@@ -93,6 +104,8 @@ attribute to the desired value.
 ### break
 
 This is the break in milliseconds after an element has been typed.
+`0` does not cause any time delay but is still using `requestAnimationFrame`,
+`-1` is not.
 
 This option can be customized for each element by setting the `data-break`
 attribute to the desired value.
