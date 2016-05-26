@@ -23,7 +23,7 @@
   function typewrite($dst, $src, options) {
     var nde, str, idx = 0, intval;
 
-    str = $src.text().replace(/(^\s+\n|\n\s+$)/g, "").replace(/\s+/g, " ");
+    str = $src.text().replace(/\s*\n\s*/g, "");
     if (!str.length) {
       return options.cb();
     }
@@ -43,7 +43,7 @@
           if (options.detachCursor) {
             options.cursorElement.detach();
           }
-          timeout(options.cb(), options.break);
+          timeout(options.cb, options.break);
         }
       }, options.speed);
     };
