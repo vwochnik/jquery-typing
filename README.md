@@ -8,9 +8,13 @@ built.
 
 ## Demo
 
-Check out [this fiddle](https://jsfiddle.net/vwochnik/qh66c12y/2/) for a generic
-demo and [this one](https://jsfiddle.net/vwochnik/7k9cj0qg/7/) for a terminal
-animation.
+![Typing demo](https://raw.githubusercontent.com/vwochnik/jquery-typing/master/demo.gif)
+<br>Check out [this fiddle](https://jsfiddle.net/vwochnik/qh66c12y/8/) containing
+the demo above.
+
+![Terminal demo](https://raw.githubusercontent.com/vwochnik/jquery-typing/master/terminal.gif)
+<br>[This fiddle](https://jsfiddle.net/vwochnik/7k9cj0qg/7/) contains the code for
+the terminal demo.
 
 ## Installation
 
