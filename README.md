@@ -9,7 +9,7 @@ built.
 ## Demo
 
 Check out [this fiddle](https://jsfiddle.net/vwochnik/qh66c12y/2/) for a generic
-demo and [this one](https://jsfiddle.net/vwochnik/7k9cj0qg/6/) for a terminal
+demo and [this one](https://jsfiddle.net/vwochnik/7k9cj0qg/7/) for a terminal
 animation.
 
 ## Installation
