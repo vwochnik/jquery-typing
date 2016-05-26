@@ -82,6 +82,9 @@ DOM after the typewriting for a certain element has completed. Note that a DOM
 element can not be attached twice so naturally, the cursor element is being
 detached before it is reattached for each successive typing animation.
 
+This option can be customized for each element by setting the
+`data-detach-cursor` attribute to either `true` or `false`.
+
 ### cb
 
 This is a callback function that is called after the animation has been
@@ -93,6 +96,9 @@ This is the time in milliseconds between each stroke.
 `0` does not cause any time delay but is still using `requestAnimationFrame`,
 `-1` is not.
 
+Alternatively, this option can set to an array containing a range, i.e. minimum
+and maximum values, from which a random value is being generated.
+
 This option can be customized for each element by setting the `data-speed`
 attribute to the desired value.
 
@@ -102,14 +108,34 @@ This is the delay in milliseconds before an element is being typed.
 `0` does not cause any time delay but is still using `requestAnimationFrame`,
 `-1` is not.
 
+Alternatively, this option can set to an array containing a range, i.e. minimum
+and maximum values, from which a random value is being generated.
+
 This option can be customized for each element by setting the `data-delay`
+attribute to the desired value.
+
+### pause
+
+This is the pause in milliseconds after an element has been typed but before
+the cursor is detached, if not disabled.
+`0` does not cause any time delay but is still using `requestAnimationFrame`,
+`-1` is not.
+
+Alternatively, this option can set to an array containing a range, i.e. minimum
+and maximum values, from which a random value is being generated.
+
+This option can be customized for each element by setting the `data-pause`
 attribute to the desired value.
 
 ### break
 
-This is the break in milliseconds after an element has been typed.
+This is the break in milliseconds after an element has been typed and the cursor
+has been detached, if not disabled.
 `0` does not cause any time delay but is still using `requestAnimationFrame`,
 `-1` is not.
+
+Alternatively, this option can set to an array containing a range, i.e. minimum
+and maximum values, from which a random value is being generated.
 
 This option can be customized for each element by setting the `data-break`
 attribute to the desired value.

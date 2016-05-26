@@ -9,19 +9,29 @@
                               window.mozRequestAnimationFrame    ||
                               window.setTimeout;
 
-  function timeout(fn, msec) {
-    if (msec < 0) { return fn(); }
+  function randomFromRange(r) {
+    return
+  }
+
+  function timeout(fn, delay) {
+    if (Array.isArray(delay)) {
+      delay = Math.floor(Math.random() * (delay[1] - delay[0] + 1)) + delay[0];
+    }
+
+    if (delay < 0) {
+      return fn();
+    }
 
     var now = Date.now(), diff;
     requestAnimationFrame(function() {
       diff = Date.now() - now;
-      if (msec <= diff) { return fn(); }
-      setTimeout(fn, msec - diff);
+      if (delay <= diff) { return fn(); }
+      setTimeout(fn, delay - diff);
     });
   }
 
   function typewrite($dst, $src, options) {
-    var nde, str, idx = 0, intval;
+    var nde, str, idx = 0;
 
     str = $src.text().replace(/\s*\n\s*/g, "");
     if (!str.length) {
@@ -38,12 +48,12 @@
         if (idx < str.length) {
           delayedType();
         } else {
-          clearInterval(intval);
-
-          if (options.detachCursor) {
-            options.cursorElement.detach();
-          }
-          timeout(options.cb, options.break);
+          timeout(function() {
+            if (options.detachCursor) {
+              options.cursorElement.detach();
+            }
+            timeout(options.cb, options.break);
+          }, options.pause);
         }
       }, options.speed);
     };
@@ -52,19 +62,15 @@
   }
 
   function elementOptions($elem) {
-    var options = {}, val;
+    var options = {}, data;
 
-    if ((val = $elem.data("speed")) !== undefined) {
-      options.speed = val;
-    }
-
-    if ((val = $elem.data("delay")) !== undefined) {
-      options.delay = val;
-    }
-
-    if ((val = $elem.data("break")) !== undefined) {
-      options.break = val;
-    }
+    data = $elem.data();
+    ['speed', 'delay', 'pause', 'break', 'detachCursor']
+      .forEach(function(property) {
+        if (data[property] !== undefined) {
+          options[property] = data[property];
+        }
+      });
 
     return options;
   }
@@ -92,38 +98,29 @@
   }
 
   $.fn.typing = function(options) {
+    if (this.length === 0) {
+      return this;
+    }
+
     if (!options.cursorElement) {
       options.cursorElement = $.fn.typing.defaults.cursorElement.clone();
     }
 
     options = $.extend({}, $.fn.typing.defaults, options);
 
-    var src = options.sourceElement;
-    if (!src) {
-      return this;
-    }
+    options.sourceElement = $(options.sourceElement);
+    options.cursorElement = $(options.cursorElement);
 
-    if (src.tagName) {
-      src = $(src);
-    }
-
-    if ((this.length === 0) || !(src instanceof $)) {
-      return this;
-    }
-
-    if (!(options.cursorElement instanceof $)) {
-      options.cursorElement = $(options.cursorElement);
-    }
-
-    traverse(this.first(), src.contents(), options);
+    traverse(this.first(), options.sourceElement.contents(), options);
     return this;
   };
 
   $.fn.typing.defaults = {
     cursorElement: $("<span/>").addClass("blinking-cursor").text("|"),
     detachCursor: true,
-    delay: -1,
     speed: 50,
+    delay: -1,
+    pause: -1,
     break: -1,
     cb: function() {}
   };
