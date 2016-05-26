@@ -32,6 +32,14 @@ HTML files:
 <script src="bower_components/jquery-typing/dist/jquery.typing.min.js"></script>
 ```
 
+Alternatively, you can use the RawGit CDN to embed the plugin without the need
+of downloading it:
+
+```
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/vwochnik/jquery-typing/v0.1.6/dist/jquery.typing.min.css">
+<script src="https://cdn.rawgit.com/vwochnik/jquery-typing/v0.1.6/dist/jquery.typing.min.js"></script>
+```
+
 ## Usage
 
 You need one invisible HTML element containing the content to typewrite and you
